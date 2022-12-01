@@ -16,8 +16,13 @@ export class InputHandler {
     try {
       answer = await this.rl.question(question);
     } finally {
-      this.rl.close();
+      this.rl.write;
+      // this.rl.close();
     }
     return answer;
+  }
+
+  async closeInput(): Promise<void> {
+    this.rl.close();
   }
 }
