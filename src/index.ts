@@ -1,12 +1,3 @@
-import * as readline from 'readline';
+import { Main } from "./main";
 
-let rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question('What is your name? \n > ', (answer) => {
-	console.log(`Welcome ${answer}!`);
-	rl.close();
-
-});
+new Main().run();
