@@ -1,4 +1,4 @@
-import * as readline from "readline/promises";
+import * as readline from 'readline/promises';
 
 export class InputHandler {
   private rl: readline.Interface;

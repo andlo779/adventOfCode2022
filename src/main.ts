@@ -1,4 +1,10 @@
-import { InputHandler } from "./input-handler";
+import { DayOne } from './days/day-one/day-one';
+import { InputHandler } from './input-handler';
+
+export type Answer = {
+  first: string;
+  second: string;
+};
 
 export class Main {
   private inputHandler = new InputHandler();
@@ -10,28 +16,34 @@ export class Main {
 
     while (run) {
       const answer = await this.inputHandler.getInput(
-        "\nFor what day do you want the solution"
+        '\nFor what day do you want the solution'
       );
 
       switch (answer) {
-        case "1":
-          this.print("42");
+        case '1':
+          const result = new DayOne().solveChallange();
+          this.printAnswer(result);
           break;
 
-        case "help":
-        case "Help":
+        case 'h':
+        case 'help':
+        case 'Help':
           this.help();
           break;
 
-        case "exit":
-        case "Exit":
+        case 'e':
+        case 'exit':
+        case 'Exit':
+        case 'q':
+        case 'quit':
+        case 'Quit':
           run = false;
           this.inputHandler.closeInput();
           break;
 
         default:
           this.print(
-            "The requested day is not implemented yet. Please choose another day."
+            'The requested day is not implemented yet. Please choose another day.'
           );
           break;
       }
@@ -41,7 +53,7 @@ export class Main {
   }
 
   private async welcome(): Promise<string> {
-    const name = await this.inputHandler.getInput("What is your name");
+    const name = await this.inputHandler.getInput('What is your name');
     this.print(
       `Welcome ${name}! Her you can find my solutions for the Code of Advent 2022.`
     );
@@ -50,11 +62,16 @@ export class Main {
 
   private async help(): Promise<void> {
     let helpMsg =
-      "This application will give you my solutions for any requested day.\nYou choos day by providing the date of the requested day.";
+      'This application will give you my solutions for any requested day.\nYou choos day by providing the date of the requested day.';
     this.print(helpMsg);
   }
 
   private print(input: string): void {
     console.log(input);
+  }
+
+  private printAnswer(answer: Answer): void {
+    console.log(`The answer for first part is: ${answer.first},`);
+    console.log(`and for the second part: ${answer.second}`);
   }
 }
