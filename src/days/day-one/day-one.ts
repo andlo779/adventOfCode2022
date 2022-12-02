@@ -1,6 +1,5 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import { Answer } from '../../main';
+import { FileReader } from '../../fileReader';
 
 type ElfCalories = {
   id: number;
@@ -8,10 +7,8 @@ type ElfCalories = {
 };
 
 export class DayOne {
-  private readonly encoding = 'utf-8';
-
   solveChallange(): Answer {
-    const res = this.readFile();
+    const res = FileReader.readFile('day-one.txt');
     const split = res.split('\n');
 
     const list = this.transformToElfCaloryList(split);
@@ -69,12 +66,5 @@ export class DayOne {
     result += sortedList[1].amount;
     result += sortedList[2].amount;
     return result;
-  }
-
-  private readFile(): string {
-    return readFileSync(
-      join(process.cwd(), './inputs/input.txt'),
-      this.encoding
-    );
   }
 }

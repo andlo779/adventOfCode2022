@@ -1,4 +1,5 @@
 import { DayOne } from './days/day-one/day-one';
+import { DayTwo } from './days/day-one/day-two';
 import { InputHandler } from './input-handler';
 
 export type Answer = {
@@ -21,10 +22,11 @@ export class Main {
 
       switch (answer) {
         case '1':
-          const result = new DayOne().solveChallange();
-          this.printAnswer(result);
+          this.printAnswer(new DayOne().solveChallange());
           break;
-
+        case '2':
+          this.printAnswer(new DayTwo().solveChallange());
+          break;
         case 'h':
         case 'help':
         case 'Help':
