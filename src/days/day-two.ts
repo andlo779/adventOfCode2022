@@ -1,5 +1,5 @@
-import { Answer } from '../../main';
-import { FileReader } from '../../fileReader';
+import { Answer } from '../main';
+import { FileReader } from '../fileReader';
 
 export class DayTwo {
   solveChallange(): Answer {

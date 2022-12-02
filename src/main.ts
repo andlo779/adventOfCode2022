@@ -1,5 +1,5 @@
-import { DayOne } from './days/day-one/day-one';
-import { DayTwo } from './days/day-one/day-two';
+import { DayOne } from './days/day-one';
+import { DayTwo } from './days/day-two';
 import { InputHandler } from './input-handler';
 
 export type Answer = {
