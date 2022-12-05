@@ -37,9 +37,22 @@ describe('GIVEN input of "vJrwpWtwJgWrhcsFMMfFFhFp" & "jqHRNqRjqzjGDLGLrsFMfFZSr
   const secondBackpack = 'jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL';
   const thirdBackpack = 'PmmdzqPrVvPwwTWBwg';
   describe('WHEN calling getWeight()', () => {
-    const result = dayThree.findBadge(firstBackpack, secondBackpack, thirdBackpack);
+    const result = dayThree.findBadge(
+      firstBackpack,
+      secondBackpack,
+      thirdBackpack
+    );
     it('THEN return "r"', () => {
       expect(result).toBe('r');
+    });
+  });
+});
+
+describe('GIVEN provided imput file', () => {
+  describe('WHEN calling solveChallanges()', () => {
+    const result = dayThree.solveChallanges();
+    it('THEN return correct solutions', () => {
+      expect(result).toEqual({ first: '7785', second: '2633' });
     });
   });
 });
