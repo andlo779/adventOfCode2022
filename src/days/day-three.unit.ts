@@ -31,3 +31,15 @@ describe('GIVEN input of "vJrwpWtwJgWrhcsFMMfFFhFp"', () => {
     });
   });
 });
+
+describe('GIVEN input of "vJrwpWtwJgWrhcsFMMfFFhFp" & "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL" & "PmmdzqPrVvPwwTWBwg"', () => {
+  const firstBackpack = 'vJrwpWtwJgWrhcsFMMfFFhFp';
+  const secondBackpack = 'jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL';
+  const thirdBackpack = 'PmmdzqPrVvPwwTWBwg';
+  describe('WHEN calling getWeight()', () => {
+    const result = dayThree.findBadge(firstBackpack, secondBackpack, thirdBackpack);
+    it('THEN return "r"', () => {
+      expect(result).toBe('r');
+    });
+  });
+});

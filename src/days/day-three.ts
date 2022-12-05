@@ -16,7 +16,13 @@ export class DayThree implements Day {
       firstResult += this.getWeight(duplicatedItem);
     });
 
-    return { first: String(firstResult), second: 'NA' };
+    let secondResult = 0;
+    for (let i = 0; i < split.length; i += 3) {
+      const badge = this.findBadge(split[i], split[i + 1], split[i + 2]);
+      secondResult += this.getWeight(badge);
+    }
+
+    return { first: String(firstResult), second: String(secondResult) };
   }
 
   getWeight(input: string): number {
@@ -35,6 +41,21 @@ export class DayThree implements Day {
     firstPocket.split('').forEach((content) => {
       if (secondPocket.includes(content)) {
         result = content;
+        return;
+      }
+    });
+    return result;
+  }
+
+  findBadge(
+    firstBackpack: string,
+    secondBackpack: string,
+    thirdBackpack: string
+  ): string {
+    let result = 'NA';
+    firstBackpack.split('').forEach((item) => {
+      if (secondBackpack.includes(item) && thirdBackpack.includes(item)) {
+        result = item;
         return;
       }
     });
