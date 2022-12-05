@@ -1,13 +1,14 @@
 import { Answer } from '../main';
 import { FileReader } from '../fileReader';
+import { Day } from './day';
 
 type ElfCalories = {
   id: number;
   amount: number;
 };
 
-export class DayOne {
-  solveChallange(): Answer {
+export class DayOne implements Day {
+  solveChallanges(): Answer {
     const res = FileReader.readFile('day-one.txt');
     const split = res.split('\n');
 

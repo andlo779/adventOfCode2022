@@ -1,8 +1,9 @@
 import { Answer } from '../main';
 import { FileReader } from '../fileReader';
+import { Day } from './day';
 
-export class DayTwo {
-  solveChallange(): Answer {
+export class DayTwo implements Day {
+  solveChallanges(): Answer {
     const fileContent = FileReader.readFile('day-two.txt');
     const list = fileContent.split('\n');
 

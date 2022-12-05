@@ -1,4 +1,5 @@
 import { DayOne } from './days/day-one';
+import { DayThree } from './days/day-three';
 import { DayTwo } from './days/day-two';
 import { InputHandler } from './input-handler';
 
@@ -22,10 +23,13 @@ export class Main {
 
       switch (answer) {
         case '1':
-          this.printAnswer(new DayOne().solveChallange());
+          this.printAnswer(new DayOne().solveChallanges());
           break;
         case '2':
-          this.printAnswer(new DayTwo().solveChallange());
+          this.printAnswer(new DayTwo().solveChallanges());
+          break;
+        case '3':
+          this.printAnswer(new DayThree().solveChallanges());
           break;
         case 'h':
         case 'help':
