@@ -1,3 +1,4 @@
+import { DayFour } from './days/day-four';
 import { DayOne } from './days/day-one';
 import { DayThree } from './days/day-three';
 import { DayTwo } from './days/day-two';
@@ -30,6 +31,9 @@ export class Main {
           break;
         case '3':
           this.printAnswer(new DayThree().solveChallanges());
+          break;
+        case '4':
+          this.printAnswer(new DayFour().solveChallanges());
           break;
         case 'h':
         case 'help':
