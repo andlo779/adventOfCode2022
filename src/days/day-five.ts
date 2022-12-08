@@ -31,11 +31,20 @@ export class DayFive implements Day {
     }
 
     this.parsStacks(split.slice(0, metaData.startOfInstructions - 2), stacks);
+    const stacks2 = JSON.parse(JSON.stringify(stacks));
     const instuctions = split.slice(metaData.startOfInstructions);
     instuctions.forEach((instruction) => {
-      this.performMove(this.parsInstruction(instruction), stacks);
+      this.performMove(this.parsInstruction(instruction), stacks, false);
     });
-    return { first: this.getTopCrates(stacks), second: 'NA' };
+
+    instuctions.forEach((instruction) => {
+      this.performMove(this.parsInstruction(instruction), stacks2, true);
+    });
+
+    return {
+      first: this.getTopCrates(stacks),
+      second: this.getTopCrates(stacks2),
+    };
   }
 
   parsMetaData(input: string[]): {
@@ -105,13 +114,29 @@ export class DayFive implements Day {
     };
   }
 
-  performMove(instructtion: Instruction, stacks: string[][]): void {
-    let numberOfMoves = 0;
-    for (let i = 0; i < instructtion.amount; i++) {
-      const crate = this.getCrate(instructtion.from, stacks);
-      if (crate) {
+  performMove(
+    instructtion: Instruction,
+    stacks: string[][],
+    newVersion: boolean
+  ): void {
+    if (newVersion) {
+      let temp = new Array<string>();
+      for (let i = 0; i < instructtion.amount; i++) {
+        const crate = this.getCrate(instructtion.from, stacks);
+        if (crate) {
+          temp.push(crate);
+        }
+      }
+      temp.reverse();
+      temp.forEach((crate) => {
         this.pushCrate(instructtion.to, crate, stacks);
-        ++numberOfMoves;
+      });
+    } else {
+      for (let i = 0; i < instructtion.amount; i++) {
+        const crate = this.getCrate(instructtion.from, stacks);
+        if (crate) {
+          this.pushCrate(instructtion.to, crate, stacks);
+        }
       }
     }
   }

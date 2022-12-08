@@ -88,7 +88,7 @@ describe('GIVEN imput below(??)', () => {
   describe('WHEN calling processInput()', () => {
     const result = dayFive.processInput(input);
     it('THEN return correct answer', () => {
-      expect(result).toEqual({ first: 'CMZ', second: 'NA' });
+      expect(result).toEqual({ first: 'CMZ', second: 'MCD' });
     });
   });
 });
@@ -98,7 +98,7 @@ describe('GIVEN provided imput file', () => {
   describe('WHEN calling solveChallanges()', () => {
     const result = day.solveChallanges();
     it('THEN return correct solutions', () => {
-      expect(result).toEqual({ first: 'VCTFTJQCG', second: 'NA' });
+      expect(result).toEqual({ first: 'VCTFTJQCG', second: 'GCFGLDNJZ' });
     });
   });
 });
