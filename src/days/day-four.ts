@@ -54,14 +54,16 @@ export class DayFour implements Day {
     const secondRange = this.getRange(second);
 
     if (
-      (firstRange.start >= secondRange.start && firstRange.start <= secondRange.end) ||
+      (firstRange.start >= secondRange.start &&
+        firstRange.start <= secondRange.end) ||
       (firstRange.end >= secondRange.start && firstRange.end <= secondRange.end)
     ) {
       return true;
     }
 
     if (
-      (secondRange.start >= firstRange.start && secondRange.start <= firstRange.end) ||
+      (secondRange.start >= firstRange.start &&
+        secondRange.start <= firstRange.end) ||
       (secondRange.end >= firstRange.start && secondRange.end <= firstRange.end)
     ) {
       return true;

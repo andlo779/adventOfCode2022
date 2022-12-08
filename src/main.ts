@@ -1,3 +1,4 @@
+import { DayFive } from './days/day-five';
 import { DayFour } from './days/day-four';
 import { DayOne } from './days/day-one';
 import { DayThree } from './days/day-three';
@@ -35,12 +36,14 @@ export class Main {
         case '4':
           this.printAnswer(new DayFour().solveChallanges());
           break;
+        case '5':
+          this.printAnswer(new DayFive().solveChallanges());
+          break;
         case 'h':
         case 'help':
         case 'Help':
           this.help();
           break;
-
         case 'e':
         case 'exit':
         case 'Exit':
@@ -50,7 +53,6 @@ export class Main {
           run = false;
           this.inputHandler.closeInput();
           break;
-
         default:
           this.print(
             'The requested day is not implemented yet. Please choose another day.'
