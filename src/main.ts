@@ -1,6 +1,7 @@
 import { DayFive } from './days/day-five';
 import { DayFour } from './days/day-four';
 import { DayOne } from './days/day-one';
+import { DaySix } from './days/day-six';
 import { DayThree } from './days/day-three';
 import { DayTwo } from './days/day-two';
 import { InputHandler } from './input-handler';
@@ -38,6 +39,9 @@ export class Main {
           break;
         case '5':
           this.printAnswer(new DayFive().solveChallanges());
+          break;
+        case '6':
+          this.printAnswer(new DaySix().solveChallanges());
           break;
         case 'h':
         case 'help':

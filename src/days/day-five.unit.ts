@@ -94,9 +94,8 @@ describe('GIVEN imput below(??)', () => {
 });
 
 describe('GIVEN provided imput file', () => {
-  const day = new DayFive();
   describe('WHEN calling solveChallanges()', () => {
-    const result = day.solveChallanges();
+    const result = dayFive.solveChallanges();
     it('THEN return correct solutions', () => {
       expect(result).toEqual({ first: 'VCTFTJQCG', second: 'GCFGLDNJZ' });
     });

@@ -1,8 +1,6 @@
 import { Answer } from '../main';
 import { FileReader } from '../fileReader';
-
 import { Day } from './day';
-import { create } from 'domain';
 
 type Instruction = {
   amount: number;
